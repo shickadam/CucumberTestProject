@@ -27,8 +27,12 @@ import static org.hamcrest.Matchers.not;
 
 public class LoginActivitySteps {
   @Rule
-  public ActivityTestRule<LoginActivity> activityTestRule = new ActivityTestRule<>(LoginActivity.class);
+  public ActivityTestRule<LoginActivity> activityTestRule = new ActivityTestRule<>(LoginActivity.class, false, false);
 
+  public LoginActivitySteps(SomeDependency dependency)
+  {
+    assertNotNull(dependency);
+  }
   private Activity activity;
 
   @Before
